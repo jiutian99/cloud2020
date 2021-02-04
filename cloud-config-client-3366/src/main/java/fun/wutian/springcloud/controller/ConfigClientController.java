@@ -1,0 +1,27 @@
+package fun.wutian.springcloud.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author wuyuetian
+ * @create 2020-07-21 9:14
+ */
+@RestController
+@RefreshScope
+public class ConfigClientController {
+
+    @Value("${config.info}")
+    private String configInfo;
+
+    @Value("${server.port}")
+    private String serverPort;
+
+    @GetMapping("/configInfo")
+    public String getConfigInfo(){
+        return "serverPort:\t"+ serverPort + "\nconfigInfo:\t" + configInfo;
+    }
+
+}

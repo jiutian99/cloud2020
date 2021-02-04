@@ -1,0 +1,17 @@
+server:
+  port: 8004
+
+#  注册别名---注册zookeeper到注册中心名称
+spring:
+  application:
+    name: cloud-provider-payment
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver   # mysql 驱动包
+    url: jdbc:mysql:///db2019?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+  cloud:
+    zookeeper:
+      connect-string: 39.106.72.96:2181
+      
